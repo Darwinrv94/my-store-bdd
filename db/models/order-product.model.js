@@ -47,7 +47,7 @@ const OrderProductSchema = {
 }
 
 class OrderProduct extends Model {
-  static associate(models) {
+  static associate(/*models*/) {
     //
   }
 
