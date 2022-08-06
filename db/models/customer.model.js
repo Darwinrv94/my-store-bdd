@@ -32,7 +32,7 @@ const CustomerSchema =  {
   },
   userId: {
     field: 'user_id',
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.INTEGER,
     unique: true,
     references: {
@@ -47,7 +47,11 @@ const CustomerSchema =  {
 class Customer extends Model {
 
   static associate(models) {
-    this.belongsTo(models.User, {as: 'user'});
+    this.belongsTo(models.User, { as: 'user' });
+    this.hasMany(models.Order, {
+      as: 'orders',
+      foreignKey: 'customerId',
+    });
   }
 
   static config(sequelize) {
