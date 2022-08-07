@@ -28,6 +28,12 @@ class UserService {
     return rta;
   }
 
+  async findByEmail(email) {
+    return await models.User.findOne({
+      where: { email }
+    })
+  }
+
   async findOne(id) {
     const user = await models.User.findByPk(id);
     if (!user) {
