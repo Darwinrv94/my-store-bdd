@@ -10,6 +10,7 @@ class CustomerService {
     const rta = await models.Customer.findAll({
       include: ['user']
     });
+
     return rta;
   }
 
